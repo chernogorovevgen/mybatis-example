@@ -4,6 +4,7 @@ import com.chernogorov.model.OrderModel;
 import com.chernogorov.repository.OrderRepository;
 import com.chernogorov.repository.mapper.OrderModelMapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class OrderRepositoryImpl implements OrderRepository {
         this.modelMapper = modelMapper;
     }
 
+    @Transactional
     @Override
     public void save(OrderModel orderModel) {
         modelMapper.save(orderModel);
