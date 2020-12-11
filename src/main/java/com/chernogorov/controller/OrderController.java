@@ -13,12 +13,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/order")
-public class OrderDto {
+//TODO: название похоже на объект траспорта, лучше по другому назвать класс
+public class OrderController {
 
 
     private OrderRepository orderRepository;
 
-    public OrderDto(OrderRepository orderRepository) {
+    public OrderController(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
     }
 

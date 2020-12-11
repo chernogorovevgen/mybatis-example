@@ -4,7 +4,7 @@
 <mapper namespace="com.chernogorov.repository.mapper.OrderModelMapper">
 
     <insert id="save" parameterType="OrderModel">
-        INSERT INTO orders(number, timestamp) VALUES(#{number}, #{timestamp})
+        INSERT INTO orders(number, timestamp) VALUES(#{orderModel.number}, #{orderModel.timestamp})
     </insert>
 
 

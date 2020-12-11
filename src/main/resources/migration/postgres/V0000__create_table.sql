@@ -15,4 +15,5 @@ COMMENT ON COLUMN orders."number" IS 'Номер заказа';
 COMMENT ON COLUMN orders.timestamp IS 'Дата время заказа';
 
 -- Создание индекса
+-- не надо создавать индекс по id, это поле у тебя помечено как PRIMARY KEY, соответственно оно уже является уникальным индексом
 CREATE UNIQUE INDEX udx_orders_id ON orders USING btree(id);
