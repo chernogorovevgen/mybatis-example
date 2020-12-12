@@ -5,6 +5,7 @@ CREATE TABLE orders (
     id bigserial, -- Идентификатор
     "number" text, -- Номер заказа
     timestamp bigint, -- дата время заказа
+    "prefix" text,
     CONSTRAINT orders_key PRIMARY KEY (id)
 );
 
