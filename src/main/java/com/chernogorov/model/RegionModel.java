@@ -1,17 +1,14 @@
 package com.chernogorov.model;
 
-
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class OrderModel {
+public class RegionModel {
 
     private long id;
-    private String number;
-    private long timestamp;
-    private String regionCode;
-
+    private String kode;
+    private String name;
 
 }

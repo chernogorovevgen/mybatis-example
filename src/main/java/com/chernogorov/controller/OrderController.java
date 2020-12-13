@@ -27,12 +27,10 @@ public class OrderController {
     @GetMapping("/add/{number}")
     public void add(@PathVariable("number") String number) {
 
-        String prefix = number.length()>= 2 ? number.substring(0,2) : "";
-
         OrderModel orderModel = new OrderModel();
         orderModel.setNumber(number);
         orderModel.setTimestamp(System.currentTimeMillis());
-        orderModel.setPrefix(prefix);
+        orderModel.setRegionCode(number);
 
         orderRepository.save(orderModel);
 
