@@ -15,7 +15,7 @@ COMMENT ON COLUMN regions.id IS 'Идентификатор';
 COMMENT ON COLUMN regions."code" IS 'Код региона';
 COMMENT ON COLUMN regions."name" IS 'Наименование региона';
 
--- Копируем данные из CSV  файла в таблицу regions (не знаю как прочитать файл из ресурсов без указания полного пути)
+-- Копируем данные из CSV  файла в таблицу regions (пока не знаю как прочитать файл из ресурсов без указания полного пути)
 COPY regions (code, name) FROM 'e:/Java App/mybatis-example/src/main/resources/report_regions.csv' DELIMITER ';' CSV HEADER;
 
 /*
