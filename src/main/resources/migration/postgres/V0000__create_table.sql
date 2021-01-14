@@ -18,7 +18,7 @@ COMMENT ON COLUMN orders.timestamp IS 'Дата время заказа';
 COMMENT ON COLUMN orders.region_code IS 'Код региона'
 
 -- Создание индекса
---CREATE UNIQUE INDEX udx_orders_id ON orders USING btree(number);
+--CREATE UNIQUE INDEX udx_orders_number ON orders USING btree(number);
 
 ---------------------------------------------------------------------
 
