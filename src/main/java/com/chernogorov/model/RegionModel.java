@@ -1,13 +1,11 @@
 package com.chernogorov.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class RegionModel {
 
-    private long id;
+    private Long id;
     private String kode;
     private String name;
 

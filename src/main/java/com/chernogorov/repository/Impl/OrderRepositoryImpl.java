@@ -3,36 +3,46 @@ package com.chernogorov.repository.Impl;
 import com.chernogorov.model.OrderModel;
 import com.chernogorov.repository.OrderRepository;
 import com.chernogorov.repository.mapper.OrderModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
+//@AllArgsConstructor
+@RequiredArgsConstructor
 public class OrderRepositoryImpl implements OrderRepository {
 
 
-    private final OrderModelMapper modelMapper;
+    private final OrderModelMapper orderModelMapper;
 
-    @Autowired
-    public OrderRepositoryImpl(OrderModelMapper modelMapper) {
-        this.modelMapper = modelMapper;
-    }
+//    public OrderRepositoryImpl(OrderModelMapper orderModelMapper) {
+//        this.orderModelMapper = orderModelMapper;
+//    }
 
     @Transactional
     @Override
     public void save(OrderModel orderModel) {
-        modelMapper.save(orderModel);
+
+        Optional.ofNullable(orderModel.getRegion())
+                .ifPresent(region -> {
+                    orderModel.setRegionId(region.getId());
+                });
+
+        orderModelMapper.save(orderModel);
     }
 
     @Override
     public OrderModel findById(Long id) {
-        return modelMapper.findById(id);
+        return orderModelMapper.findById(id);
     }
 
     @Override
     public List<OrderModel> getAll() {
-        return modelMapper.getAll();
+        return orderModelMapper.getAll();
     }
+
 }

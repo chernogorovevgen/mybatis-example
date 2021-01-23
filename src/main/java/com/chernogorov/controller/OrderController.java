@@ -1,49 +1,52 @@
 package com.chernogorov.controller;
 
+import com.chernogorov.converter.OrderDtoConverter;
+import com.chernogorov.dto.OrderDto;
 import com.chernogorov.model.OrderModel;
-import com.chernogorov.repository.OrderRepository;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.chernogorov.service.OrderService;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
+import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/order")
-//TODO: название похоже на объект траспорта, лучше по другому назвать класс
+@RequestMapping("/api")
+@RequiredArgsConstructor
 public class OrderController {
 
+    private final OrderService orderService;
+    private final OrderDtoConverter orderDtoConverter;
 
-    private OrderRepository orderRepository;
-
-    public OrderController(OrderRepository orderRepository) {
-        this.orderRepository = orderRepository;
+    @GetMapping("/{id}")
+    public OrderDto findById(@PathVariable("id") Long id){
+        OrderModel orderModel = orderService.findById(id);
+        return orderDtoConverter.convert(orderModel);
     }
 
 
-    @GetMapping("/add/{number}")
-    public void add(@PathVariable("number") String number) {
+    @PostMapping("/save")
+    public void createOrder(@Valid @RequestBody OrderDto orderDto) {
+        OrderModel orderModel = orderDtoConverter.convert(orderDto);
+        orderService.save(orderModel);
 
-        OrderModel orderModel = new OrderModel();
-        orderModel.setNumber(number);
-        orderModel.setTimestamp(System.currentTimeMillis());
-        orderModel.setRegionCode(number);
-
-        orderRepository.save(orderModel);
-
-    }
-
-    @GetMapping("/find/{id}")
-    public OrderModel findById(@PathVariable("id") Long id){
-        return orderRepository.findById(id);
     }
 
     @GetMapping("/all")
-    public List<OrderModel> getAll(){
-        return orderRepository.getAll();
+    public List<OrderDto> getAll(){
+
+        List<OrderModel> orderList = orderService.getAll();
+
+        List<OrderDto> orderDtoList = new ArrayList<>(orderList.size());
+
+        for (OrderModel orderModel : orderList) {
+            orderDtoList.add(orderDtoConverter.convert(orderModel));
+        }
+
+        return orderDtoList;
     }
 
 

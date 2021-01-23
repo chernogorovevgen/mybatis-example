@@ -1,17 +1,18 @@
 package com.chernogorov.model;
 
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+import java.util.Date;
+
+@Data
 public class OrderModel {
 
-    private long id;
+    private Long id;
     private String number;
-    private long timestamp;
-    private String regionCode;
+    private Date timestamp;
+    private Long regionId;
+    private RegionModel region;
 
 
 }
