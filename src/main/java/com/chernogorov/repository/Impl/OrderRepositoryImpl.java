@@ -12,16 +12,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-//@AllArgsConstructor
 @RequiredArgsConstructor
 public class OrderRepositoryImpl implements OrderRepository {
 
 
     private final OrderModelMapper orderModelMapper;
-
-//    public OrderRepositoryImpl(OrderModelMapper orderModelMapper) {
-//        this.orderModelMapper = orderModelMapper;
-//    }
 
     @Transactional
     @Override

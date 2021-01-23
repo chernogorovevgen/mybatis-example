@@ -11,8 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-//@RequiredArgsConstructor
-//@AllArgsConstructor
 public class OrderService {
 
     private OrderRepository orderRepository;

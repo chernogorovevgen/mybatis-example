@@ -4,9 +4,7 @@ import com.chernogorov.converter.OrderDtoConverter;
 import com.chernogorov.dto.OrderDto;
 import com.chernogorov.model.OrderModel;
 import com.chernogorov.service.OrderService;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
