@@ -20,7 +20,7 @@ public class OrderDtoConverter {
         orderModel.setNumber(dto.getNumber());
         orderModel.setTimestamp(dto.getTimestamp());
 
-       // orderModel.setRegion(regionDtoConverter.convert(dto.getRegion()));
+        orderModel.setRegion(regionDtoConverter.convert(dto.getRegion()));
 
         return orderModel;
 
@@ -34,7 +34,7 @@ public class OrderDtoConverter {
         dto.setNumber(orderModel.getNumber());
         dto.setTimestamp(orderModel.getTimestamp());
 
-        //dto.setRegion(regionDtoConverter.convert(orderModel.getRegion()));
+        dto.setRegion(regionDtoConverter.convert(orderModel.getRegion()));
 
         return dto;
 

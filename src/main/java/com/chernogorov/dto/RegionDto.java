@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class RegionDto implements Serializable {
 
     private Long id;
-    private String kode;
+    private String code;
     private String name;
 
 

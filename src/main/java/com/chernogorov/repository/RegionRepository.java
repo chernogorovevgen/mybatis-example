@@ -4,6 +4,6 @@ import com.chernogorov.model.RegionModel;
 
 public interface RegionRepository {
 
-    RegionModel getById(Long id);
+    RegionModel findById(Long id);
 
 }

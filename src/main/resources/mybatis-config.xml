@@ -18,10 +18,12 @@
 
     <typeAliases>
         <typeAlias alias="OrderModel" type="com.chernogorov.model.OrderModel"/>
+        <typeAlias alias="RegionModel" type="com.chernogorov.model.RegionModel"/>
     </typeAliases>
     
     <mappers>
         <mapper resource="mappers/OrderModelMapper.xml"/>
+        <mapper resource="mappers/RegionModelMapper.xml"/>
     </mappers>
 
 

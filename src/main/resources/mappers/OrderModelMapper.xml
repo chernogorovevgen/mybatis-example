@@ -25,22 +25,24 @@
         WHERE id = #{id}
     </select>
 
-<!--    <select id="getAll" resultMap="orderResultMap">-->
-<!--        SELECT * FROM orders-->
-<!--    </select>-->
+    <select id="getAll" resultMap="orderResultMap">
+        SELECT
+            id,
+            number,
+            timestamp,
+            region_id
+        FROM orders
+    </select>
 
     <resultMap id="orderResultMap" type="com.chernogorov.model.OrderModel">
         <result property="id" column="id"/>
         <result property="number" column="number"/>
         <result property="timestamp" column="timestamp"/>
-        <result property="regionId" column="region_id"/>
+        <association property="region"
+                     column="region_id"
+                     select="com.chernogorov.repository.mapper.RegionModelMapper.findById"
+                     fetchType="eager"/>
 
     </resultMap>
-
-<!--    <association property="region"-->
-<!--                 column="region_id"-->
-<!--                 select="com.chernogorov.repository.mapper.RegionModelMapper.getById"-->
-<!--                 fetchType="eager"/>-->
-
 
 </mapper>

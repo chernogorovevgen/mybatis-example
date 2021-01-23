@@ -6,7 +6,7 @@ import lombok.Data;
 public class RegionModel {
 
     private Long id;
-    private String kode;
+    private String code;
     private String name;
 
 }

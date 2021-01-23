@@ -5,6 +5,6 @@ import org.apache.ibatis.annotations.Param;
 
 public interface RegionModelMapper {
 
-    RegionModel getById(@Param("id") long id);
+    RegionModel findById(@Param("id") Long id);
 
 }

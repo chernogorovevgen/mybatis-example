@@ -13,7 +13,7 @@ public class RegionRepositoryImpl implements RegionRepository {
     private final RegionModelMapper regionModelMapper;
 
     @Override
-    public RegionModel getById(Long id) {
-        return regionModelMapper.getById(id);
+    public RegionModel findById(Long id) {
+        return regionModelMapper.findById(id);
     }
 }
